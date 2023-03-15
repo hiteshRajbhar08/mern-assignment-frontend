@@ -5,6 +5,7 @@ import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import Toast from './utils/Toast';
+import CartPage from './pages/CartPage';
 
 const App = () => {
   return (
@@ -15,6 +16,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/product/:id" element={<ProductDetailsPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/cart/:id" element={<CartPage />} />
           </Routes>
         </Container>
       </main>

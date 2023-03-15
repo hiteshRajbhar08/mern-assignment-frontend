@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
@@ -23,6 +23,8 @@ const ProductDetailsPage = () => {
 
   const [qty, setQty] = useState(1);
 
+  const navigate = useNavigate();
+
   const { loading, error, product } = useSelector((state) => state.product);
 
   useEffect(() => {
@@ -33,7 +35,9 @@ const ProductDetailsPage = () => {
     return <Loader />;
   }
 
-  const addToCartHandler = () => {};
+  const addToCartHandler = () => {
+    navigate(`/cart/${id}?qty=${qty}`);
+  };
 
   return (
     <>
