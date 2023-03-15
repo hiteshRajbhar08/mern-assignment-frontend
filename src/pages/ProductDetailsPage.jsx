@@ -40,11 +40,11 @@ const ProductDetailsPage = () => {
       <Link className="btn btn-dark my-3 rounded" to="/">
         <i className="fas fa-arrow-left"></i> Go back
       </Link>
-      <>
-        <Row>
-          {error ? (
-            <Message variant="danger">{error}</Message>
-          ) : (
+      {error ? (
+        <Message variant="danger">{error}</Message>
+      ) : (
+        <>
+          <Row>
             <>
               <Col md={6}>
                 <Image src={product.image} alt={product.name} fluid />
@@ -126,9 +126,9 @@ const ProductDetailsPage = () => {
                 </Card>
               </Col>
             </>
-          )}
-        </Row>
-      </>
+          </Row>
+        </>
+      )}
     </>
   );
 };
