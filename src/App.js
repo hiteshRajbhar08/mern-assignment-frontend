@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
+import Toast from './utils/Toast';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         </Container>
       </main>
       <Footer />
+      <Toast />
     </Router>
   );
 };
