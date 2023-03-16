@@ -13,6 +13,7 @@ import ShippingPage from './pages/ShippingPage';
 import PaymentPage from './pages/PaymentPage';
 import PlaceorderPage from './pages/PlaceorderPage';
 import OrderPage from './pages/OrderPage';
+import OrderHistoryPage from './pages/OrderHistoryPage';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/shipping" element={<ShippingPage />} />
             <Route path="/payment" element={<PaymentPage />} />
             <Route path="/placeorder" element={<PlaceorderPage />} />
+            <Route path="/orderhistory" element={<OrderHistoryPage />} />
             <Route path="/order/:id" element={<OrderPage />} />
             <Route path="/admin/productlist" element={<ProductListPage />} />
           </Routes>
