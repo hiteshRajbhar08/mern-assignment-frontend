@@ -4,6 +4,7 @@ const orderSlice = createSlice({
   name: 'order',
   initialState: {
     order: {},
+    orders: [],
     loading: false,
     error: null,
     success: false,
@@ -20,6 +21,14 @@ const orderSlice = createSlice({
     setOrderReset: (state, action) => {
       state.order = {};
       state.success = false;
+    },
+    setOrderDetails: (state, action) => {
+      state.order = action.payload;
+      state.loading = false;
+    },
+    setListMyOrders: (state, action) => {
+      state.orders = action.payload;
+      state.loading = false;
     },
     setError: (state, action) => {
       state.error = action.payload;

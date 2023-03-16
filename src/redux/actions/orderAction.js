@@ -33,3 +33,59 @@ export const createOrder = (order) => async (dispatch, getState) => {
     toast.error(error.response.data.message);
   }
 };
+
+// details order
+export const detailsOrder = (orderId) => async (dispatch, getState) => {
+  try {
+    dispatch(orderActions.setLoading());
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${getState().user.userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.get(`/api/orders/${orderId}`, config);
+
+    dispatch(orderActions.setOrderDetails(data));
+  } catch (error) {
+    dispatch(
+      orderActions.setError(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+          ? error.message
+          : 'An unexpected error has occured. Please try again later.'
+      )
+    );
+    toast.error(error.response.data.message);
+  }
+};
+
+//  list my orders
+export const listMyOrders = () => async (dispatch, getState) => {
+  try {
+    dispatch(orderActions.setLoading());
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${getState().user.userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.get(`/api/orders/myorders`, config);
+
+    dispatch(orderActions.setListMyOrders(data));
+  } catch (error) {
+    dispatch(
+      orderActions.setError(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+          ? error.message
+          : 'An unexpected error has occured. Please try again later.'
+      )
+    );
+    toast.error(error.response.data.message);
+  }
+};
