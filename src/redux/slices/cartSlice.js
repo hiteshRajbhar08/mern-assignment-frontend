@@ -44,6 +44,9 @@ const cartSlice = createSlice({
     cartSavePaymentMethod: (state, action) => {
       state.paymentMethod = action.payload;
     },
+    setCartEmpty: (state, action) => {
+      state.cartItems = [];
+    },
   },
 });
 
