@@ -4,6 +4,7 @@ const orderSlice = createSlice({
   name: 'order',
   initialState: {
     order: {},
+    orderPay: {},
     orders: [],
     loading: false,
     error: null,
@@ -28,6 +29,16 @@ const orderSlice = createSlice({
     },
     setListMyOrders: (state, action) => {
       state.orders = action.payload;
+      state.loading = false;
+    },
+    setOrderPay: (state, action) => {
+      state.orderPay = action.payload;
+      state.success = true;
+      state.loading = false;
+    },
+    setOrderPayReset: (state, action) => {
+      state.orderPay = {};
+      state.success = false;
       state.loading = false;
     },
     setError: (state, action) => {
